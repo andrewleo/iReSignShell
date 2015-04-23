@@ -38,8 +38,8 @@
     
     //Support Today extension and framework resign
     NSString *appexPath;
-//    NSString *frameworksDirPath;
-//    NSString *frameworkPath;
+    NSString *frameworksDirPath;
+    NSString *frameworkPath;
     NSString *todayExtensionDirPath;
     NSString *todayExtensionPath;
 //    NSMutableArray *frameworks;

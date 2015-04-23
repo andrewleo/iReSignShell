@@ -354,6 +354,23 @@ static NSString *kTodayExtensionsDirName        = @"PlugIns";
                 }
             }
             
+            //检查是否存在Frameworks目录，存在的话也需要重签名
+            frameworksDirPath = [appPath stringByAppendingPathComponent:kFrameworksDirName];
+            if ([[NSFileManager defaultManager] fileExistsAtPath:frameworksDirPath]) {
+                NSLog(@"Found %@",frameworksDirPath);
+                
+                NSArray *frameworkContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:frameworksDirPath error:nil];
+                for (NSString *frameworkFile in frameworkContents) {
+                    if ([[[frameworkFile pathExtension] lowercaseString] isEqualToString:@"dylib"] || [[[frameworkFile pathExtension] lowercaseString] isEqualToString:@"framework"]) {
+                        frameworkPath = [frameworksDirPath stringByAppendingPathComponent:frameworkFile];
+                        NSLog(@"Found framework %@",frameworkPath);
+                        [allAppsPath addObject:frameworkPath];
+                    }
+                }
+            }
+            
+            
+            
             
             break;
         }
