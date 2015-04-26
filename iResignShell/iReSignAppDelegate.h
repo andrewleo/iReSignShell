@@ -22,6 +22,7 @@
     NSTask *zipTask;
     NSString *originalIpaPath;
     NSString *appPath;
+    
     NSString *workingPath;
     NSString *appName;
     NSString *fileName;
@@ -34,6 +35,18 @@
     NSString *provisioningPathField;
     NSString *entitlementField;
     NSString *bundleIDField;
+    
+    //Support Today extension and framework resign
+    NSString *appexPath;
+    NSString *frameworksDirPath;
+    NSString *frameworkPath;
+    NSString *todayExtensionDirPath;
+    NSString *todayExtensionPath;
+//    NSMutableArray *frameworks;
+    NSMutableArray *todayExtension;
+    NSMutableArray *allAppsPath;//所有app的地址，包含extensions
+//    Boolean hasFrameworks;
+//    Boolean hasTodayextension;
     
     
     NSString *certName;
