@@ -70,7 +70,15 @@ static NSString *kTodayExtensionsDirName        = @"PlugIns";
     verificationResult = nil;
     
     originalIpaPath = pathField;
-    workingPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"com.adouming.iresignshell"];
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc ] init];
+    [formatter setDateFormat:@"YYYY-MM-dd_hh-mm-ss-SSS"];
+    NSString *date =  [formatter stringFromDate:[NSDate date]];
+    NSString *timeLocal = [[NSString alloc] initWithFormat:@"%@", date];
+    NSLog(@"timeLocal== %@", timeLocal);
+    workingPath = [NSTemporaryDirectory() stringByAppendingPathComponent:timeLocal];
+    
+//    workingPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"com.adouming.iresignshell"];
     
     if (certName) {
         if ([[[originalIpaPath pathExtension] lowercaseString] isEqualToString:@"ipa"]) {
